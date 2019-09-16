@@ -3,7 +3,7 @@
     padding: 0;
 }
 
-html {
+html * {
     box-sizing: border-box;
 }
 
@@ -13,10 +13,10 @@ body {
 }
 
 #nav-bar {
-    position: sticky;
+    position: fixed;
     top: 0;
+    width: 100%;
     z-index: 10;
-    box-shadow: 0px 0px 5px -5px;
 }
 
     #nav-bar ul li a:hover {
@@ -43,10 +43,16 @@ body {
     border: none !important;
 }
 
-#slider img {
-    width: 100% !important;
-    height: 500px !important;
+#slider {
+    padding-top: 65px !important;
 }
 
-.carousel-inner img {
+    #slider img {
+        position: relative;
+        width: 100% !important;
+        height: 400px !important;
+    }
+
+.footerNav .nav-link {
+    padding-bottom: 0 !important;
 }

@@ -6,6 +6,8 @@
     <meta name="description" content="" />
     <meta name="author" content="Md. Foridul Islam" />
     <link href="~/css/Site.css" rel="stylesheet" />
+    <link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/lib/twitter-bootstrap/css/bootstrap-grid.css" rel="stylesheet" />
     <link href="~/lib/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
     <script src="~/lib/jquery/jquery.slim.min.js"></script>
@@ -16,8 +18,8 @@
     <title>@ViewBag.Title Online eCommerce Web Application</title>
 </head>
 <body>
-    <section id="nav-bar">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <header id="nav-bar">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow mb-2">
             <a class="navbar-brand" href="#"><i class="fas fa-shopping-basket mr-1"></i>eCommerceApp</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -43,10 +45,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#"><i class="fas fa-user-alt pr-1"></i>Register</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-cart-plus pr-1"></i>| 0</a>
+                    </li>
                 </ul>
             </div>
         </nav>
-    </section>
+    </header>
     <div class="container" id="slider">
         <div id="headerSlider" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -91,5 +96,9 @@
         @RenderBody()
     </div>
     <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/js/App.js"></script>
+    <footer class="">
+        <partial name="_Footer" />
+    </footer>
 </body>
 </html>
