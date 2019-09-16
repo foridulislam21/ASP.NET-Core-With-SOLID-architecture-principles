@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/lib/font-awesome/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="~/lib/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/lib/jquery/jquery.slim.min.js"></script>
+    <script src="~/lib/popper.js/popper.min.js"></script>
+    <script src="~/lib/twitter-bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/lib/font-awesome/js/fontawesome.min.js"></script>
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2 border shadow" id="adminPanel">
+                <div class="nav flex-column pt-3">
+                    <h4>eCommerceApp</h4>
+                </div>
+                <div class="nav flex-column">
+                    <a class="nav-link active" href="#">Home</a>
+                    <a class="nav-link" href="#">Dashboard</a>
+                    <a class="nav-link" href="#">Categories</a>
+                    <a class="nav-link" href="#">Products</a>
+                    <a class="nav-link" href="#">Orders</a>
+                    <a class="nav-link" href="#">Users</a>
+                    <a class="nav-link" href="#">Roles</a>
+                    <a class="nav-link" href="#">Messages</a>
+                    <a class="nav-link" href="#">Settings</a>
+                </div>
+            </div>
+            <div class="col-10">
+            </div>
+        </div>
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

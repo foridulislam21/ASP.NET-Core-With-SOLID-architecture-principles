@@ -1,4 +1,5 @@
-﻿* {
+﻿/*****Customer*******/
+* {
     margin: 0;
     padding: 0;
 }
@@ -9,7 +10,6 @@ html * {
 
 body {
     overflow-y: scroll;
-    height: 2048px;
 }
 
 #nav-bar {
@@ -55,4 +55,10 @@ body {
 
 .footerNav .nav-link {
     padding-bottom: 0 !important;
+}
+/*****Admin Panel*****/
+#adminPanel {
+    height: 100vh !important;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url(../img/admin.jpg) !important;
+    background-color: darkslategray !important;
 }
