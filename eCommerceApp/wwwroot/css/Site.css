@@ -1,0 +1,52 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    overflow-y: scroll;
+    height: 2048px;
+}
+
+#nav-bar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0px 0px 5px -5px;
+}
+
+    #nav-bar ul li a:hover {
+        color: chocolate !important;
+        transition: all 0.5s ease-in-out;
+    }
+
+.navbar-brand i {
+    position: static;
+    padding-left: 20px;
+}
+
+.navbar-nav li {
+    padding: 0px 10px;
+}
+
+    .navbar-nav li a {
+        float: left;
+        text-align: right;
+        font-weight: 600;
+    }
+
+.navbar-toggler {
+    border: none !important;
+}
+
+#slider img {
+    width: 100% !important;
+    height: 500px !important;
+}
+
+.carousel-inner img {
+}
