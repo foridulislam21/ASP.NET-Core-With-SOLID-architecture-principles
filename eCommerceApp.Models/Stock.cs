@@ -13,7 +13,7 @@ namespace eCommerceApp.Models
         }
 
         public int Id { get; set; }
-        public double TotalStock { get; set; }
+        public int TotalStock { get; set; }
         public ICollection<Product> Products { get; set; }
     }
 }

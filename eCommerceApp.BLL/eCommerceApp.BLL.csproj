@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\eCommerce.DatabaseContext\eCommerce.DatabaseContext.csproj" />
     <ProjectReference Include="..\eCommerceApp.Models\eCommerceApp.Models.csproj" />
+    <ProjectReference Include="..\eCommerceApp.Repositories\eCommerceApp.Repositories.csproj" />
   </ItemGroup>
 </Project>

@@ -10,6 +10,7 @@ namespace eCommerceApp.Models
         public string Name { get; set; }
         public DateTime ExpireTime { get; set; }
         public double Price { get; set; }
+        public int CategoryId { get; set; }
         public Category Category { get; set; }
         public Stock Stock { get; set; }
     }
