@@ -1,0 +1,71 @@
+﻿body {
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: #eee;
+}
+/*Navbar*/
+.sidebar {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.9)), url(img/Blue.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 5px 7px 25px #999;
+}
+
+.bottom-border {
+    border-bottom: 1px groove #eee;
+}
+
+.sidebar-link {
+    transition: all 0.4s ease-in-out;
+}
+
+    .sidebar-link:hover {
+        background-color: #ff1010;
+        border-radius: 5px;
+    }
+
+.top-nav {
+    height: 8vh;
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.9)), url(img/Blue.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 5px 7px 25px #999;
+}
+
+.search-input {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    border-bottom: 2px solid #999;
+    transition: all 0.4s;
+}
+
+    .search-input:focus {
+        background: transparent;
+        box-shadow: none;
+        color: white;
+        border-bottom: 2px solid orange;
+    }
+
+@media (max-width: 760px) {
+    .sidebar {
+        position: static;
+        height: auto;
+    }
+
+    .top-navbar {
+        position: static;
+    }
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    line-height: 60px; /* Vertically center the text there */
+}
