@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using eCommerce.DatabaseContext;
 using eCommerceApp.Models;
 using eCommerceApp.Repositories.Base;
-using Microsoft.EntityFrameworkCore;
 
 namespace eCommerceApp.Repositories
 {
-    public class ProductRepository : EfRepository<Product>
+    public class StockRepository : EfRepository<Stock>
     {
-        private DatabaseDbContext _db;
+        private readonly DatabaseDbContext _db;
 
-        public ProductRepository(DatabaseDbContext db) : base(db)
+        public StockRepository(DatabaseDbContext db) : base(db)
         {
             _db = db;
         }

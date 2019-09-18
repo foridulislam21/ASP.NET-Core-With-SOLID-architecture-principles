@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.DependencyValidation.Analyzers" Version="0.10.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\eCommerceApp.Models\eCommerceApp.Models.csproj" />
     <ProjectReference Include="..\eCommerceApp.Repositories\eCommerceApp.Repositories.csproj" />
   </ItemGroup>
