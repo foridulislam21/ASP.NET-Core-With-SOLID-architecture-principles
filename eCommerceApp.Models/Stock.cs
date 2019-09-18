@@ -7,13 +7,9 @@ namespace eCommerceApp.Models
 {
     public class Stock
     {
-        public Stock()
-        {
-            Products = new List<Product>();
-        }
-
         public int Id { get; set; }
         public int TotalStock { get; set; }
-        public ICollection<Product> Products { get; set; }
+        public int ProductId { get; set; }
+        public Product Product { get; set; }
     }
 }

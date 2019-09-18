@@ -15,6 +15,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.TotalStock)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -23,6 +26,9 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.TotalStock)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Name)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

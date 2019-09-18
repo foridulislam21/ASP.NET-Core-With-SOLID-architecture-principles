@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using eCommerce.DatabaseContext;
 using eCommerceApp.Areas.Admin.Controllers;
 using eCommerceApp.BLL;
+using eCommerceApp.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -22,6 +23,8 @@ namespace eCommerceApp
             services.AddTransient<DatabaseDbContext>();
             services.AddTransient<CategoryManager>();
             services.AddTransient<ProductManager>();
+            services.AddTransient<ProductRepository>();
+            services.AddTransient<CategoryRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

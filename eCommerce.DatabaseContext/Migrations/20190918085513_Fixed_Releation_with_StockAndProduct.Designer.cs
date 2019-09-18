@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eCommerce.DatabaseContext;
 
 namespace eCommerce.DatabaseContext.Migrations
 {
     [DbContext(typeof(DatabaseDbContext))]
-    partial class DatabaseDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190918085513_Fixed_Releation_with_StockAndProduct")]
+    partial class Fixed_Releation_with_StockAndProduct
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,12 +43,10 @@ namespace eCommerce.DatabaseContext.Migrations
 
                     b.Property<int>("CategoryId");
 
-                    b.Property<DateTime>("ExpireDate");
+                    b.Property<DateTime>("ExpireTime");
 
                     b.Property<string>("Name")
                         .IsRequired();
-
-                    b.Property<double>("Price");
 
                     b.HasKey("Id");
 
@@ -61,14 +61,15 @@ namespace eCommerce.DatabaseContext.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<double>("Price");
+
                     b.Property<int>("ProductId");
 
                     b.Property<int>("TotalStock");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductId")
-                        .IsUnique();
+                    b.HasIndex("ProductId");
 
                     b.ToTable("Stocks");
                 });
@@ -84,8 +85,8 @@ namespace eCommerce.DatabaseContext.Migrations
             modelBuilder.Entity("eCommerceApp.Models.Stock", b =>
                 {
                     b.HasOne("eCommerceApp.Models.Product", "Product")
-                        .WithOne("Stock")
-                        .HasForeignKey("eCommerceApp.Models.Stock", "ProductId")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

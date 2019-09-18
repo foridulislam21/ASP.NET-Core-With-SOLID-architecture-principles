@@ -12,7 +12,6 @@ namespace eCommerce.DatabaseContext.FluentApiConfiguration
         public void Configure(EntityTypeBuilder<Product> builder)
         {
             builder.Property(p => p.Name).IsRequired();
-            builder.Property(p => p.Price).IsRequired();
             builder.Property(p => p.CategoryId).IsRequired();
         }
     }

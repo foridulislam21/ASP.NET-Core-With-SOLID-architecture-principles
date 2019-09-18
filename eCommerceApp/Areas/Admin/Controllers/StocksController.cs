@@ -13,11 +13,5 @@ namespace eCommerceApp.Areas.Admin.Controllers
     [Area("Admin")]
     public class StocksController : Controller
     {
-        private readonly DatabaseDbContext _context;
-
-        public StocksController(DatabaseDbContext context)
-        {
-            _context = context;
-        }
     }
 }

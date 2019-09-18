@@ -7,6 +7,8 @@
   <ItemGroup>
     <Compile Remove="Migrations\20190917200830_ChangeSomeProductAndStock.cs" />
     <Compile Remove="Migrations\20190917200830_ChangeSomeProductAndStock.Designer.cs" />
+    <Compile Remove="Migrations\20190918083217_Fixed_Releation_with_StockAndProduct.cs" />
+    <Compile Remove="Migrations\20190918083217_Fixed_Releation_with_StockAndProduct.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
