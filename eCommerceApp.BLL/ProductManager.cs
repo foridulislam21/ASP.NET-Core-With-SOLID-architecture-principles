@@ -1,28 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using eCommerceApp.Abstractions.BLL;
+using eCommerceApp.Abstractions.BLL.Base;
+using eCommerceApp.Abstractions.Repositories;
+using eCommerceApp.BLL.Base;
 using eCommerceApp.Models;
-using eCommerceApp.Repositories;
 
 namespace eCommerceApp.BLL
 {
-    public class ProductManager
+    public class ProductManager : Manager<Product>, IProductManager
     {
-        private readonly ProductRepository _productRepository;
+        private readonly IProductRepository _productRepository;
 
-        public ProductManager(ProductRepository productRepository)
+        public ProductManager(IProductRepository productRepository) : base(productRepository)
         {
             _productRepository = productRepository;
-        }
-
-        public ICollection<Product> GetAll()
-        {
-            return _productRepository.GetAll();
-        }
-
-        public bool Add(Product product)
-        {
-            return _productRepository.Add(product);
         }
     }
 }

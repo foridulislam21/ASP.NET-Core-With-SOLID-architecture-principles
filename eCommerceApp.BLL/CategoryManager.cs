@@ -1,23 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using eCommerceApp.Abstractions.BLL;
+using eCommerceApp.Abstractions.Repositories;
+using eCommerceApp.BLL.Base;
 using eCommerceApp.Models;
-using eCommerceApp.Repositories;
 
 namespace eCommerceApp.BLL
 {
-    public class CategoryManager
+    public class CategoryManager : Manager<Category>, ICategoryManager
     {
-        private readonly CategoryRepository _categoryRepository;
+        private readonly ICategoryRepository _categoryRepository;
 
-        public CategoryManager(CategoryRepository categoryRepository)
+        public CategoryManager(ICategoryRepository categoryRepository) : base(categoryRepository)
         {
             _categoryRepository = categoryRepository;
-        }
-
-        public ICollection<Category> GetAll()
-        {
-            return _categoryRepository.GetAll();
         }
     }
 }

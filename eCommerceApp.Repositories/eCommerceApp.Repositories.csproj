@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\eCommerce.DatabaseContext\eCommerce.DatabaseContext.csproj" />
+    <ProjectReference Include="..\eCommerceApp.Abstractions\eCommerceApp.Abstractions.csproj" />
     <ProjectReference Include="..\eCommerceApp.Models\eCommerceApp.Models.csproj" />
   </ItemGroup>
 </Project>

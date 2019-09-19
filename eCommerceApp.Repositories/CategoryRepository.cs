@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using eCommerce.DatabaseContext;
+using eCommerceApp.Abstractions.Repositories;
 using eCommerceApp.Models;
 using eCommerceApp.Repositories.Base;
 
 namespace eCommerceApp.Repositories
 {
-    public class CategoryRepository : EfRepository<Category>
+    public class CategoryRepository : EfRepository<Category>, ICategoryRepository
     {
-        private readonly DatabaseDbContext _db;
+        private DatabaseDbContext _db;
 
         public CategoryRepository(DatabaseDbContext db) : base(db)
         {
-            _db = db;
+            _db = db as DatabaseDbContext;
         }
     }
 }

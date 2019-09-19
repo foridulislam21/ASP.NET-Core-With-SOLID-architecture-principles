@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\eCommerce.DatabaseContext\eCommerce.DatabaseContext.csproj" />
+    <ProjectReference Include="..\eCommerceApp.Abstractions\eCommerceApp.Abstractions.csproj" />
+    <ProjectReference Include="..\eCommerceApp.BLL\eCommerceApp.BLL.csproj" />
+    <ProjectReference Include="..\eCommerceApp.Repositories\eCommerceApp.Repositories.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
+      <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.extensions.dependencyinjection.abstractions\2.2.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
