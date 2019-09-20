@@ -12,10 +12,13 @@ namespace eCommerce.DatabaseContext
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Stock> Stocks { get; set; }
+        public DbSet<Customer> Customers { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=(local);Database=eCommerceApp;Integrated Security=true");
+            optionsBuilder
+                .UseLazyLoadingProxies(false)
+                .UseSqlServer("Server=(local);Database=eCommerceApp;Integrated Security=true");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

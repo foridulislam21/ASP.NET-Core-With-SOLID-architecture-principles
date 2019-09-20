@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eCommerceApp.BLL", "eCommer
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eCommerceApp.Abstractions", "eCommerceApp.Abstractions\eCommerceApp.Abstractions.csproj", "{1900D517-55E0-4793-91FB-95ACD456F371}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eCommerceApp.Configurations", "eCommerceApp.Configurations\eCommerceApp.Configurations.csproj", "{F463F161-6C2F-4265-AF14-AD6263DAD5EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eCommerceApp.Configurations", "eCommerceApp.Configurations\eCommerceApp.Configurations.csproj", "{F463F161-6C2F-4265-AF14-AD6263DAD5EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

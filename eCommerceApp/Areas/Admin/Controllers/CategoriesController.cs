@@ -17,20 +17,20 @@ namespace eCommerceApp.Areas.Admin.Controllers
             _categoryManager = categoryManager;
         }
 
-        [Route("Admin/Index")]
+        [Route("Category/Index")]
         public IActionResult Index()
         {
             var category = _categoryManager.GetAll();
             return View(category);
         }
 
-        [Route("Admin/Create")]
+        [Route("Category/Create")]
         public IActionResult Create()
         {
             return View();
         }
 
-        [Route("Admin/Create")]
+        [Route("Category/Create")]
         [HttpPost]
         public IActionResult Create(Category category)
         {

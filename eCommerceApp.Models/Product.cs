@@ -11,6 +11,7 @@ namespace eCommerceApp.Models
         public double Price { get; set; }
         public DateTime ExpireDate { get; set; }
         public int CategoryId { get; set; }
+        public byte[] Image { get; set; }
         public Category Category { get; set; }
         public Stock Stock { get; set; }
     }

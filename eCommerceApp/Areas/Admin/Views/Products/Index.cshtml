@@ -7,11 +7,11 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-outline-primary btn-sm" asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table class="table table-responsive-sm table-hover table-bordered">
     <thead>
-        <tr>
+        <tr class="bg-success">
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
@@ -24,30 +24,41 @@
             <th>
                 @Html.DisplayNameFor(model => model.Category)
             </th>
-            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ExpireDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category.Name)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExpireDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.Name)
+                </td>
+                <td>
+                    @{
+                        String img64 = Convert.ToBase64String(item.Image);
+                        String img64url = string.Format("data:Image/" + item.Image + ";base64,{0}", img64);
+                    }
+                    <img src="@img64url" style="height: 40px; width: 30px;" />
+                </td>
+                <td>
+                    <a class="btn btn-success btn-sm" asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-edit pr-1"></i>Edit</a> |
+                    <a class="btn btn-sm btn-info" asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-info-circle pr-1"></i>Details</a> |
+                    <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-eraser pr-1"></i>Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

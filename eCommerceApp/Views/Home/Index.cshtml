@@ -1,4 +1,6 @@
-﻿<div class="container">
+﻿@model IEnumerable<eCommerceApp.Models.Product>
+<link href="~/css/HomePage.css" rel="stylesheet" />
+<div class="container">
     <div class="d-flex mb-3 mt-1 border">
         <div class="mr-auto p-2">
             <select class="custom-select mr-sm-5 custom-select-sm overflow-auto" id="inlineFormCustomSelect">
@@ -20,4 +22,38 @@
             <button type="reset" class="btn btn-info btn-sm"><i class="fas fa-refresh"></i>Reset</button>
         </div>
     </div>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+
+            <div class="col-md-4 pt-2">
+                <div class="card shadow" style="width: 18rem;">
+                    <h5 class="card-title text-center pt-1">@item.Name</h5>
+                    <h5 class="card-title text-center pt-1">@item.ExpireDate</h5>
+                    <div class="inner">
+                        @{
+                            String img64 = Convert.ToBase64String(item.Image);
+                            String img64url = string.Format("data:Image/" + item.Image + ";base64,{0}", img64);
+                        }
+                        <img src="@img64url" class="card-img-top" style="height: 250px; width: 100%;" alt="...">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-subtitle">Price: @item.Price</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Details</a>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+    <nav aria-label="Page navigation example" class="align-content-center">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+    </nav>
 </div>

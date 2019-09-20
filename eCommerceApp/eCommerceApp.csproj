@@ -10,12 +10,12 @@
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.DependencyValidation.Analyzers" Version="0.10.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+    <PackageReference Include="PagedList.Core.Mvc" Version="2.1.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Areas\Admin\Views\Categories\" />
     <Folder Include="Areas\Admin\Views\Home\" />
-    <Folder Include="Areas\Admin\Views\Products\" />
     <Folder Include="Areas\Admin\Views\Stocks\" />
     <Folder Include="wwwroot\lib\jquery-validation-unobtrusive\" />
     <Folder Include="wwwroot\lib\jquery\" />

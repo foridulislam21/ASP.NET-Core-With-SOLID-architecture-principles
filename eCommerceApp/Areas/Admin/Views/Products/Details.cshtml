@@ -1,4 +1,5 @@
-﻿@model eCommerceApp.Models.Product
+﻿@using System.Net.Mime
+@model eCommerceApp.Models.Product
 
 @{
     ViewData["Title"] = "Details";
@@ -9,32 +10,30 @@
 <div>
     <h4>Product</h4>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ExpireDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ExpireDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Category)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Category.Name)
-        </dd>
-    </dl>
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div class="card mb-3 shadow pt-2 pb-2" style="max-width: 1280px;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        @{
+                            String img64 = Convert.ToBase64String(Model.Image);
+                            String img64url = string.Format("data:Image/" + Model.Image + ";base64,{0}", img64);
+                        }
+                        <img src="@img64url" class="card-img-top" alt="...">
+                    </div>
+                    <div class="col-md-8 pt-2">
+                        <div class="card-body">
+                            <h4 class="card-title">@Html.DisplayFor(model => model.Name)</h4>
+                            <h5 class="card-text">@Html.DisplayFor(model => model.Price)</h5>
+                            <h5 class="card-text">@Html.DisplayFor(model => model.ExpireDate)</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |

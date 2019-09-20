@@ -18,5 +18,12 @@ namespace eCommerceApp.Repositories
         {
             _db = db;
         }
+
+        public override ICollection<Product> GetAll()
+        {
+            return _db.Products
+                .Include(c => c.Category)
+                .ToList();
+        }
     }
 }

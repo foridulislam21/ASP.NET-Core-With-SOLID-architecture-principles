@@ -9,11 +9,16 @@
     <Compile Remove="Migrations\20190917200830_ChangeSomeProductAndStock.Designer.cs" />
     <Compile Remove="Migrations\20190918083217_Fixed_Releation_with_StockAndProduct.cs" />
     <Compile Remove="Migrations\20190918083217_Fixed_Releation_with_StockAndProduct.Designer.cs" />
+    <Compile Remove="Migrations\20190919155331_Introduce_Customer_Picture.cs" />
+    <Compile Remove="Migrations\20190919155331_Introduce_Customer_Picture.Designer.cs" />
+    <Compile Remove="Migrations\20190919180357_AddLong_in_all_model.cs" />
+    <Compile Remove="Migrations\20190919180357_AddLong_in_all_model.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.DependencyValidation.Analyzers" Version="0.10.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="2.2.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.6">
       <PrivateAssets>all</PrivateAssets>
