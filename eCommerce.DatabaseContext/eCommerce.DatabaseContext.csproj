@@ -5,14 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20190917200830_ChangeSomeProductAndStock.cs" />
-    <Compile Remove="Migrations\20190917200830_ChangeSomeProductAndStock.Designer.cs" />
-    <Compile Remove="Migrations\20190918083217_Fixed_Releation_with_StockAndProduct.cs" />
-    <Compile Remove="Migrations\20190918083217_Fixed_Releation_with_StockAndProduct.Designer.cs" />
-    <Compile Remove="Migrations\20190919155331_Introduce_Customer_Picture.cs" />
-    <Compile Remove="Migrations\20190919155331_Introduce_Customer_Picture.Designer.cs" />
-    <Compile Remove="Migrations\20190919180357_AddLong_in_all_model.cs" />
-    <Compile Remove="Migrations\20190919180357_AddLong_in_all_model.Designer.cs" />
+    <Compile Remove="Migrations\20190921082524_Initialize.cs" />
+    <Compile Remove="Migrations\20190921082524_Initialize.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

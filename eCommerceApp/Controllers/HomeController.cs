@@ -27,5 +27,11 @@ namespace eCommerceApp.Controllers
 
             return View(product);
         }
+
+        public IActionResult Details(int id)
+        {
+            var product = _productRepository.GetById(id);
+            return View(product);
+        }
     }
 }
