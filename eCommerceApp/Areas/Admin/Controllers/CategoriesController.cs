@@ -18,9 +18,9 @@ namespace eCommerceApp.Areas.Admin.Controllers
         }
 
         [Route("Category/Index")]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var category = _categoryManager.GetAll();
+            var category = await _categoryManager.GetAll();
             return View(category);
         }
 
@@ -32,21 +32,22 @@ namespace eCommerceApp.Areas.Admin.Controllers
 
         [Route("Category/Create")]
         [HttpPost]
-        public IActionResult Create(Category category)
+        public async Task<IActionResult> Create(Category category)
         {
             if (ModelState.IsValid)
             {
-                bool isAdded = _categoryManager.Add(category);
+                bool isAdded = await _categoryManager.Add(category);
                 if (isAdded)
                 {
                     ViewBag.SuccessMessage = "Added Successfully";
+                    return RedirectToAction("Index");
                 }
             }
             else
             {
                 ViewBag.ErrorMessage = "Operation failed";
             }
-            return View(category);
+            return RedirectToAction("Index");
         }
     }
 }

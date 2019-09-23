@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using eCommerceApp.Abstractions.BLL;
 using eCommerceApp.Abstractions.Repositories;
 using eCommerceApp.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -13,24 +14,24 @@ namespace eCommerceApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IProductRepository _productRepository;
+        private readonly IProductManager _productManager;
 
-        public HomeController(IProductRepository productRepository)
+        public HomeController(IProductManager productRepository)
         {
-            _productRepository = productRepository;
+            _productManager = productRepository;
         }
 
         // GET: /<controller>/
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var product = _productRepository.GetAll();
+            var product = await _productManager.GetAll();
 
             return View(product);
         }
 
-        public IActionResult Details(int id)
+        public async Task<IActionResult> Details(long id)
         {
-            var product = _productRepository.GetById(id);
+            var product = await _productManager.GetById(id);
             return View(product);
         }
     }

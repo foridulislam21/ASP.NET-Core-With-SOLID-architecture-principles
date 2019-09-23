@@ -10,8 +10,8 @@ using eCommerce.DatabaseContext;
 namespace eCommerce.DatabaseContext.Migrations
 {
     [DbContext(typeof(DatabaseDbContext))]
-    [Migration("20190921081737_add_int_To_long_in_all_model")]
-    partial class add_int_To_long_in_all_model
+    [Migration("20190923182854_added_Product_key_as_a_Pimary_key")]
+    partial class added_Product_key_as_a_Pimary_key
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,7 +23,7 @@ namespace eCommerce.DatabaseContext.Migrations
 
             modelBuilder.Entity("eCommerceApp.Models.Category", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -60,7 +60,9 @@ namespace eCommerce.DatabaseContext.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<long>("CategoryId");
+                    b.Property<int>("CategoryId");
+
+                    b.Property<string>("Description");
 
                     b.Property<DateTime>("ExpireDate");
 

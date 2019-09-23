@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using eCommerceApp.Abstractions.BLL.Base;
 using eCommerceApp.Abstractions.Repositories.Base;
 
@@ -17,29 +18,29 @@ namespace eCommerceApp.BLL.Base
             _repository = repository;
         }
 
-        public virtual bool Add(T entity)
+        public virtual async Task<bool> Add(T entity)
         {
-            return _repository.Add(entity);
+            return await _repository.Add(entity);
         }
 
-        public virtual bool Remove(T entity)
+        public virtual async Task<bool> Remove(T entity)
         {
-            return _repository.Remove(entity);
+            return await _repository.Remove(entity);
         }
 
-        public virtual bool Update(T entity)
+        public virtual async Task<bool> Update(T entity)
         {
-            return _repository.Update(entity);
+            return await _repository.Update(entity);
         }
 
-        public virtual ICollection<T> GetAll()
+        public virtual async Task<ICollection<T>> GetAll()
         {
-            return _repository.GetAll();
+            return await _repository.GetAll();
         }
 
-        public virtual T GetById(int id)
+        public virtual async Task<T> GetById(long id)
         {
-            return _repository.GetById(id);
+            return await _repository.GetById(id);
         }
     }
 }

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using eCommerce.DatabaseContext;
+using eCommerceApp.Abstractions.BLL;
 using eCommerceApp.Abstractions.Repositories;
 using eCommerceApp.Models;
 using Microsoft.AspNetCore.Http;
@@ -17,19 +18,19 @@ namespace eCommerceApp.Areas.Admin.Controllers
     [Area("Admin")]
     public class ProductsController : Controller
     {
-        private readonly IProductRepository _productRepository;
-        private readonly ICategoryRepository _categoryRepository;
+        private readonly IProductManager _productRepository;
+        private readonly ICategoryManager _categoryRepository;
 
-        public ProductsController(IProductRepository productRepository, ICategoryRepository categoryRepository)
+        public ProductsController(IProductManager productRepository, ICategoryManager categoryRepository)
         {
             _productRepository = productRepository;
             _categoryRepository = categoryRepository;
         }
 
         [Route("Product/Index")]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var product = _productRepository.GetAll();
+            var product = await _productRepository.GetAll();
 
             return View(product);
         }
@@ -59,23 +60,23 @@ namespace eCommerceApp.Areas.Admin.Controllers
                     }
                 }
 
-                _productRepository.Add(product);
+                await _productRepository.Add(product);
             }
 
             PopulateCategory(product.CategoryId);
             return View();
         }
 
-        private void PopulateCategory(object selectList = null)
+        private async void PopulateCategory(object selectList = null)
         {
-            var category = _categoryRepository.GetAll();
+            var category = await _categoryRepository.GetAll();
             ViewBag.CategoryId = new SelectList(category, "Id", "Name", selectList);
         }
 
         [Route("product/Details")]
-        public ActionResult Details(int id)
+        public async Task<IActionResult> Details(long id)
         {
-            var product = _productRepository
+            var product = await _productRepository
                 .GetById(id);
             return View(product);
         }

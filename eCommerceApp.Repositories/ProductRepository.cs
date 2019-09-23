@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using eCommerce.DatabaseContext;
 using eCommerceApp.Abstractions.Repositories;
 using eCommerceApp.Models;
@@ -19,11 +20,11 @@ namespace eCommerceApp.Repositories
             _db = db;
         }
 
-        public override ICollection<Product> GetAll()
+        public override async Task<ICollection<Product>> GetAll()
         {
-            return _db.Products
+            return await _db.Products
                 .Include(c => c.Category)
-                .ToList();
+                .ToListAsync();
         }
     }
 }

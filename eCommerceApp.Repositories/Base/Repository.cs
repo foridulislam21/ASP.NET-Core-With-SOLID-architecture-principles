@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using eCommerceApp.Abstractions.Repositories.Base;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,32 +18,32 @@ namespace eCommerceApp.Repositories.Base
             _db = db;
         }
 
-        public virtual bool Add(T entity)
+        public virtual async Task<bool> Add(T entity)
         {
             _db.Set<T>().Add(entity);
-            return _db.SaveChanges() > 0;
+            return await _db.SaveChangesAsync() > 0;
         }
 
-        public virtual bool Remove(T entity)
+        public virtual async Task<bool> Remove(T entity)
         {
             _db.Set<T>().Remove(entity);
-            return _db.SaveChanges() > 0;
+            return await _db.SaveChangesAsync() > 0;
         }
 
-        public virtual bool Update(T entity)
+        public virtual async Task<bool> Update(T entity)
         {
             _db.Entry(entity).State = EntityState.Modified;
-            return _db.SaveChanges() > 0;
+            return await _db.SaveChangesAsync() > 0;
         }
 
-        public virtual T GetById(int id)
+        public virtual async Task<T> GetById(long id)
         {
-            return _db.Set<T>().Find(id);
+            return await _db.Set<T>().FindAsync(id);
         }
 
-        public virtual ICollection<T> GetAll()
+        public virtual async Task<ICollection<T>> GetAll()
         {
-            return _db.Set<T>().ToList();
+            return await _db.Set<T>().ToListAsync();
         }
     }
 }

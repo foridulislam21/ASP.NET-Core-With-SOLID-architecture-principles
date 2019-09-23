@@ -1,17 +1,18 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace eCommerceApp.Abstractions.BLL.Base
 {
     public interface IManager<T> where T : class
     {
-        bool Add(T entity);
+        Task<bool> Add(T entity);
 
-        bool Remove(T entity);
+        Task<bool> Remove(T entity);
 
-        bool Update(T entity);
+        Task<bool> Update(T entity);
 
-        ICollection<T> GetAll();
+        Task<ICollection<T>> GetAll();
 
-        T GetById(int id);
+        Task<T> GetById(long id);
     }
 }

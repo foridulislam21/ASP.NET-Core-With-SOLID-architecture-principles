@@ -21,7 +21,7 @@ namespace eCommerce.DatabaseContext.Migrations
 
             modelBuilder.Entity("eCommerceApp.Models.Category", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -58,7 +58,9 @@ namespace eCommerce.DatabaseContext.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<long>("CategoryId");
+                    b.Property<int>("CategoryId");
+
+                    b.Property<string>("Description");
 
                     b.Property<DateTime>("ExpireDate");
 
