@@ -6,6 +6,7 @@ using System.Text;
 using eCommerce.DatabaseContext;
 using eCommerceApp.Models;
 using eCommerceApp.Repositories.Base;
+using Microsoft.EntityFrameworkCore;
 
 namespace eCommerceApp.Repositories
 {
@@ -13,9 +14,9 @@ namespace eCommerceApp.Repositories
     {
         private readonly DatabaseDbContext _db;
 
-        public StockRepository(DatabaseDbContext db) : base(db)
+        public StockRepository(DbContext db) : base(db)
         {
-            _db = db;
+            _db = db as DatabaseDbContext;
         }
     }
 }

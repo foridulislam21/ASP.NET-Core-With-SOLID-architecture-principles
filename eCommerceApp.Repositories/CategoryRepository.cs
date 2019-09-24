@@ -6,14 +6,15 @@ using eCommerce.DatabaseContext;
 using eCommerceApp.Abstractions.Repositories;
 using eCommerceApp.Models;
 using eCommerceApp.Repositories.Base;
+using Microsoft.EntityFrameworkCore;
 
 namespace eCommerceApp.Repositories
 {
     public class CategoryRepository : EfRepository<Category>, ICategoryRepository
     {
-        private DatabaseDbContext _db;
+        private readonly DatabaseDbContext _db;
 
-        public CategoryRepository(DatabaseDbContext db) : base(db)
+        public CategoryRepository(DbContext db) : base(db)
         {
             _db = db as DatabaseDbContext;
         }

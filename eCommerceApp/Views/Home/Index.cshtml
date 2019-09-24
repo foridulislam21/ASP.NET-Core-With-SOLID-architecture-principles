@@ -67,21 +67,28 @@
         {
 
             <div class="col-md-3 pt-2 mr-0">
-                <div class="card shadow" style="width: 18rem;">
+                <div class="card shadow" style="width: 17rem;">
                     <h5 class="card-title text-center pt-1">@item.Name</h5>
                     <h5 class="card-title text-center pt-1">@item.ExpireDate</h5>
                     <div class="inner">
                         @{
-
-                            String img64 = Convert.ToBase64String(item.Image);
-                            String img64url = string.Format("data:Image/" + item.Image + ";base64,{0}", img64);
+                            if (item.Image == null)
+                            {
+                                <img src="~/img/default.jpg" class="card-img-top pl-4" style="height:250px; max-width: 250px" />
+                            }
+                            else
+                            {
+                                String img64 = Convert.ToBase64String(item.Image);
+                                String img64url = string.Format("data:Image/" + item.Image + ";base64,{0}", img64);
+                                <img src="@img64url" class="card-img-top pl-4" style="height:250px; max-width: 250px" alt="">
+                            }
                         }
-                        <img src="@img64url" class="card-img-top" style="height: 250px; width: 100%" alt="...">
                     </div>
                     <div class="card-body">
                         <h5 class="card-subtitle">Price: @item.Price</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         <a asp-action="Details" asp-controller="Home" asp-route-id="@item.Id" class="btn btn-primary">Details</a>
+                        <a class="btn btn-success float-right">Add To Cart</a>
                     </div>
                 </div>
             </div>

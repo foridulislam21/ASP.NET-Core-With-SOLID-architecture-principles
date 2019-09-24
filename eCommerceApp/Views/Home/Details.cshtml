@@ -1,14 +1,21 @@
 ﻿@model eCommerceApp.Models.Product
-<div class="container mt-5">
+<div class="container" style="margin-top: 40px;">
     <div class="row">
 
         <div class="col-md-9 ">
-            <div class="card mb-3">
+            <div class="card mb-3 shadow-sm">
                 @{
-                    String img64 = Convert.ToBase64String(Model.Image);
-                    String img64url = string.Format("data:Image/" + Model.Image + ";base64,{0}", img64);
+                    if (Model.Image == null)
+                    {
+                        <img src="~/img/default.jpg" class="card-img-top" style="height: 250px; width: 100%" />
+                    }
+                    else
+                    {
+                        String img64 = Convert.ToBase64String(Model.Image);
+                        String img64url = string.Format("data:Image/" + Model.Image + ";base64,{0}", img64);
+                        <img src="@img64url" class="card-img-top" style="height: 450px; max-width: 440px; margin-left: 190px; margin-top: 10px;" alt="">
+                    }
                 }
-                <img src="@img64url" class="card-img" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">@Model.Name</h5>
                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -17,7 +24,6 @@
             </div>
         </div>
         <div class="col-md-3">
-            <partial name="_FeatureProducts" model="Model" />
         </div>
     </div>
 </div>

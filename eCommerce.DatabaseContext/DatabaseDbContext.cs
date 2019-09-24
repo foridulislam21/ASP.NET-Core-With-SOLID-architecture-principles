@@ -17,7 +17,7 @@ namespace eCommerce.DatabaseContext
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder
-                .UseLazyLoadingProxies(false)
+                .UseLazyLoadingProxies(true)
                 .UseSqlServer("Server=(local);Database=eCommerceApp;Integrated Security=true");
         }
 

@@ -11,5 +11,6 @@ namespace eCommerceApp.Models
         public string Address { get; set; }
         public string Email { get; set; }
         public long MobileNo { get; set; }
+        public bool IsActive { get; set; }
     }
 }
