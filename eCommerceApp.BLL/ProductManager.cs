@@ -20,19 +20,6 @@ namespace eCommerceApp.BLL
             _productRepository = productRepository;
         }
 
-        public override async Task<Product> GetById(long id)
-        {
-            var product = await _productRepository.GetById(id);
-            if (product.IsActive)
-            {
-                return product;
-            }
-            else
-            {
-                return null;
-            }
-        }
-
         public ICollection<Product> GetByCriteria(ProductSearchCriteriaVm productSearchCriteria)
         {
             return _productRepository.GetByCriteria(productSearchCriteria);

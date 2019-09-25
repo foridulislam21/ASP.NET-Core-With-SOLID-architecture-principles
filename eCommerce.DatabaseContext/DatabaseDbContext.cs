@@ -17,7 +17,7 @@ namespace eCommerce.DatabaseContext
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder
-                .UseLazyLoadingProxies(true)
+                .UseLazyLoadingProxies(false)
                 .UseSqlServer("Server=(local);Database=eCommerceApp;Integrated Security=true");
         }
 
@@ -25,6 +25,7 @@ namespace eCommerce.DatabaseContext
         {
             modelBuilder.ApplyConfiguration(new ProductFluentApiConfigure());
             modelBuilder.ApplyConfiguration(new CategoryFluentApiConfigure());
+            modelBuilder.Entity<Product>().HasQueryFilter(p => p.IsActive);
         }
     }
 }

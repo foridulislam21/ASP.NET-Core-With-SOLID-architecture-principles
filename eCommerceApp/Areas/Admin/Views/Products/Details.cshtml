@@ -17,10 +17,18 @@
                 <div class="row no-gutters">
                     <div class="col-md-4">
                         @{
-                            String img64 = Convert.ToBase64String(Model.Image);
-                            String img64url = string.Format("data:Image/" + Model.Image + ";base64,{0}", img64);
+                            if (Model.Image != null)
+                            {
+
+                                String img64 = Convert.ToBase64String(Model.Image);
+                                String img64url = string.Format("data:Image/" + Model.Image + ";base64,{0}", img64);
+                                <img src="@img64url" class="card-img-top" alt="...">
+                            }
+                            else
+                            {
+                                <img src="~/img/default.jpg" class="card-img-top" alt="...">
+                            }
                         }
-                        <img src="@img64url" class="card-img-top" alt="...">
                     </div>
                     <div class="col-md-8 pt-2">
                         <div class="card-body">
