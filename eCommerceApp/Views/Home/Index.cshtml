@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<eCommerceApp.Models.Product>
 <link href="~/css/HomePage.css" rel="stylesheet" />
+
 <div class="container" id="slider">
     <div id="headerSlider" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -62,7 +63,7 @@
             <button type="reset" class="btn btn-info btn-sm"><i class="fas fa-refresh"></i>Reset</button>
         </div>
     </div>
-    <div class="row">
+    <div class="row item">
         @foreach (var item in Model)
         {
 
@@ -74,21 +75,23 @@
                         @{
                             if (item.Image == null)
                             {
-                                <img src="~/img/default.jpg" class="card-img-top pl-4" style="height:250px; max-width: 250px" />
+                                <img src="~/img/default.jpg" class="card-img-top pl-4" style="height:150px; max-width: 250px" alt="item" />
                             }
                             else
                             {
                                 String img64 = Convert.ToBase64String(item.Image);
                                 String img64url = string.Format("data:Image/" + item.Image + ";base64,{0}", img64);
-                                <img src="@img64url" class="card-img-top pl-4" style="height:250px; max-width: 250px" alt="">
+                                <img src="@img64url" class="card-img-top pl-4" style="height:150px; max-width: 250px" alt="item">
                             }
                         }
                     </div>
                     <div class="card-body">
                         <h5 class="card-subtitle">Price: @item.Price</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a asp-action="Details" asp-controller="Home" asp-route-id="@item.Id" class="btn btn-primary">Details</a>
-                        <a class="btn btn-success float-right">Add To Cart</a>
+                        <div class="d-flex flex-fill">
+                            <a asp-action="Details" asp-controller="Home" asp-route-id="@item.Id" class="btn btn-primary">Details</a>
+                            <input class="small" type="number" value="" min="1" /><span class="btn btn-success small"><i class="fa fa-cart-plus add-to-cart"></i></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -105,3 +108,43 @@
         </ul>
     </nav>
 </div>
+<script>
+    $('.add-to-cart').on('click', function () {
+        var cart = $('.shopping-cart');
+        var imgtodrag = $(this).parent('.item').find("img").eq(0);
+        if (imgtodrag) {
+            var imgclone = imgtodrag.clone()
+                .offset({
+                    top: imgtodrag.offset(),
+                    left: imgtodrag.offset()
+                })
+                .css({
+                    'opacity': '0.5',
+                    'position': 'absolute',
+                    'height': '150px',
+                    'width': '150px',
+                    'z-index': '100'
+                })
+                .appendTo($('body'))
+                .animate({
+                    'top': cart.offset(),
+                    'left': cart.offset(),
+                    'width': 75,
+                    'height': 75
+                }, 1000, 'easeInOutExpo');
+
+            setTimeout(function () {
+                cart.effect('shake', {
+                    times: 2
+                }, 200);
+            }, 1500);
+
+            imgclone.animate({
+                'width': 0,
+                'height': 0
+            }, function () {
+                $(this).detach();
+            });
+        }
+    });
+</script>

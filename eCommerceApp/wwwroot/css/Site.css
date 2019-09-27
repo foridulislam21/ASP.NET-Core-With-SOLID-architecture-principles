@@ -57,3 +57,21 @@ body {
     padding-bottom: 0 !important;
 }
 /*****Admin Panel*****/
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    body {
+        font-size: 15px !important;
+    }
+
+    .footerNav {
+        font-size: 12px !important;
+    }
+
+    .footer {
+        font-size: 10px !important;
+    }
+
+    #slider {
+        height: 25px;
+    }
+}

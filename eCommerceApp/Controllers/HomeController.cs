@@ -34,5 +34,11 @@ namespace eCommerceApp.Controllers
             var product = await _productManager.GetById(id);
             return View(product);
         }
+
+        [HttpGet]
+        public IActionResult ShopingCart()
+        {
+            return View();
+        }
     }
 }

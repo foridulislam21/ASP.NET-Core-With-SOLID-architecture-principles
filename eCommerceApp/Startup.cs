@@ -31,6 +31,7 @@ namespace eCommerceApp
             });
             ServicesConfiguration.ConfigureServices(services);
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +42,7 @@ namespace eCommerceApp
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseSession();
             app.UseDeveloperExceptionPage();
             app.UseStaticFiles();
             app.UseMvc(routes =>

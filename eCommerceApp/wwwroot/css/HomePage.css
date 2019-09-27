@@ -6,6 +6,6 @@
         transition: all 1.5s ease;
     }
 
-    .inner:hover img{
+    .inner:hover img {
         transform: scale(1.5);
     }

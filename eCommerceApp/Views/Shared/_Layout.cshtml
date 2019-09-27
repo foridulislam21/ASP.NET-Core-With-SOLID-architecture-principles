@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width,initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="Md. Foridul Islam" />
     <link href="~/css/Site.css" rel="stylesheet" />
@@ -14,6 +14,7 @@
     <script src="~/lib/popper.js/popper.min.js"></script>
     <script src="~/lib/popper.js/popper-utils.js"></script>
     <script src="~/lib/twitter-bootstrap/js/bootstrap.min.js"></script>
+
     @RenderSectionAsync("Styles", required: false)
     <title>@ViewBag.Title Online eCommerce Web Application</title>
 </head>
@@ -46,7 +47,7 @@
                         <a class="nav-link" href="#"><i class="fas fa-user-alt pr-1"></i>Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-cart-plus pr-1"></i>| 0</a>
+                        <span><a class="nav-link" asp-action="ShopingCart" id="shake"><i class="fas fa-cart-plus pr-1 Shoping-Cart"></i>| 0</a></span>
                     </li>
                 </ul>
             </div>
@@ -57,9 +58,9 @@
     </div>
     <script src="~/lib/jquery/jquery.js"></script>
     <script src="~/js/App.js"></script>
-    <footer class="border-bottom">
+    @RenderSection("Scripts", required: false)
+    <footer class="footer mt-5 form-group">
         <partial name="_Footer" />
     </footer>
-    @RenderSection("Scripts", required: false)
 </body>
 </html>

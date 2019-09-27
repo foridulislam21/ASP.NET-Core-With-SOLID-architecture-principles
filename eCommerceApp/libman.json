@@ -25,6 +25,14 @@
     {
       "library": "popper.js@1.15.0",
       "destination": "wwwroot/lib/popper.js/"
+    },
+    {
+      "library": "prefixfree@1.0.7",
+      "destination": "wwwroot/lib/prefixfree/"
+    },
+    {
+      "library": "jqueryui@1.12.1",
+      "destination": "wwwroot/lib/jqueryui/"
     }
   ]
 }

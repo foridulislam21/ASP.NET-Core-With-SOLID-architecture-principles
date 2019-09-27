@@ -1,29 +1,102 @@
 ﻿@model eCommerceApp.Models.Product
 <div class="container" style="margin-top: 40px;">
-    <div class="row">
+    <div class="row border">
 
-        <div class="col-md-9 ">
-            <div class="card mb-3 shadow-sm">
+        <div class="col-md-6 mb-3">
+            @{
+                if (Model.Image == null)
+                {
+                    <img src="~/img/default.jpg" class="card-img-top" style="height: 250px; width: 100%" />
+                }
+                else
+                {
+                    String img64 = Convert.ToBase64String(Model.Image);
+                    String img64url = string.Format("data:Image/" + Model.Image + ";base64,{0}", img64);
+                    <img src="@img64url" class="card-img-top" style="height: 450px; max-width: 440px;margin-top: 10px;" alt="">
+                }
+            }
+        </div>
+        <div class="col-md-6" style="margin-top: 10px;">
+            <div class="border-0">
+                <a class="float-right mr-2"><i class="fab fa-facebook"></i></a>
+                <a class="float-right mr-2"><i class="fab fa-twitter"></i></a>
+                <a class="float-right mr-2"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="card-body border-0 mt-3">
+                <h3 class="card-title">@Model.Name</h3>
+                <div class="text-info">
+                    <ul class="nav-Model d-flex small">
+                        <li class="nav-link"><i class="fa fa-star"></i></li>
+                        <li class="nav-link"><i class="fa fa-star"></i></li>
+                        <li class="nav-link"><i class="fa fa-star"></i></li>
+                        <li class="nav-link"><i class="fa fa-star"></i></li>
+                        <li class="nav-link"><i class="fa fa-star"></i></li>
+                        <li class="nav-link"><a href="">165 reviews</a></li>
+                        <li class="nav-link"><a href="">Enlight# @Model.Id</a></li>
+                    </ul>
+                </div>
+                <h5 class="card-text">$@Model.Price</h5>
+                <div class="form-group">
+                    <input class="btn btn-sm badge-pill border-bottom shadow-sm" type="number" value="" min="1" max="@Model.Stock" />
+                    <a href="" class="btn btn-success badge-pill"><i class="fa fa-cart-plus"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="container-fluid mt-3">
+    <div class="text-info text-dark">
+        <h3 class="text-dark d-flex ml-3">Customer also considered</h3>
+    </div>
+    <div class="col-md-3 pt-2 mr-0">
+        <div class="card shadow" style="width: 17rem;">
+            <div class="inner mt-1">
                 @{
                     if (Model.Image == null)
                     {
-                        <img src="~/img/default.jpg" class="card-img-top" style="height: 250px; width: 100%" />
+                        <img src="~/img/default.jpg" class="card-img-top pl-4" style="height:150px; max-width: 250px" alt="Model" />
                     }
                     else
                     {
                         String img64 = Convert.ToBase64String(Model.Image);
                         String img64url = string.Format("data:Image/" + Model.Image + ";base64,{0}", img64);
-                        <img src="@img64url" class="card-img-top" style="height: 450px; max-width: 440px; margin-left: 190px; margin-top: 10px;" alt="">
+                        <img src="@img64url" class="card-img-top pl-4" style="height:150px; max-width: 250px" alt="Model">
                     }
                 }
-                <div class="card-body">
-                    <h5 class="card-title">@Model.Name</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">@Model.Name</h5>
+                <h5 class="card-subtitle">Price: @Model.Price</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
         </div>
-        <div class="col-md-3">
+    </div>
+    <hr />
+    <div class="text-info text-dark mt-3">
+        <h3 class="text-dark d-flex ml-3">Customers also viewed these products</h3>
+    </div>
+    <div class="col-md-3 pt-2 mr-0">
+        <div class="card shadow" style="width: 17rem;">
+            <div class="inner mt-1">
+                @{
+                    if (Model.Image == null)
+                    {
+                        <img src="~/img/default.jpg" class="card-img-top pl-4" style="height:150px; max-width: 250px" alt="Model" />
+                    }
+                    else
+                    {
+                        String img64 = Convert.ToBase64String(Model.Image);
+                        String img64url = string.Format("data:Image/" + Model.Image + ";base64,{0}", img64);
+                        <img src="@img64url" class="card-img-top pl-4" style="height:150px; max-width: 250px" alt="Model">
+                    }
+                }
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">@Model.Name</h5>
+                <h5 class="card-subtitle">Price: @Model.Price</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
         </div>
     </div>
 </div>
