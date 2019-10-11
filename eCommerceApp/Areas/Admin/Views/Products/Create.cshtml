@@ -10,7 +10,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create" method="post" enctype="multipart/form-data">
+        <form id="holder" asp-action="Create" method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
@@ -27,26 +27,33 @@
                 <input type="date" asp-for="ExpireDate" class="form-control" />
                 <span asp-validation-for="ExpireDate" class="text-danger"></span>
             </div>
+            <div class="form-group form-check">
+                <input type="checkbox" asp-for="IsActive" class="form-check-input" />
+                <label asp-for="IsActive" class="form-check-label"></label>
+                <span asp-validation-for="IsActive" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="CategoryId" class="control-label"></label>
                 <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="Image" class="control-label"></label>
-                <input type="file" asp-for="Image" />
-                <span asp-validation-for="Image" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
+    <div class="col-md-8 mt-5">
+        <div class="card bg-light mb-3" style="max-width: 30rem;">
+            <div class="card-header">
+                <input type="button" id="inputMusk" class="btn btn-primary btn-sm float-right" value="Upload Image" />
+            </div>
+            <div class="card-body" id="ImageHolder">
+            </div>
+            <div class="validation" style="display:none;"> Upload Max 4 Files allowed </div>
+        </div>
+    </div>
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript" src="~/js/Product/ProductImage.js"></script>
 }

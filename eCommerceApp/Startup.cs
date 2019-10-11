@@ -24,13 +24,14 @@ namespace eCommerceApp
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            ServicesConfiguration.ConfigureServices(services);
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddMvc(options =>
             {
                 options.RespectBrowserAcceptHeader = true;
                 options.OutputFormatters.Add(new XmlDataContractSerializerOutputFormatter());
             });
-            ServicesConfiguration.ConfigureServices(services);
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
             services.AddSession();
         }
 

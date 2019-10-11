@@ -12,6 +12,10 @@ namespace eCommerceApp.Configurations.AutoMapperConfigurations
         public AutoMapperProfile()
         {
             CreateMap<ProductSearchCriteriaVm, Product>();
+            CreateMap<Product, ProductSearchCriteriaVm>();
+
+            CreateMap<ProductDto, Product>();
+            CreateMap<Product, ProductDto>();
         }
     }
 }

@@ -10,6 +10,6 @@ namespace eCommerceApp.Models
         public long Id { get; set; }
         public long TotalStock { get; set; }
         public long ProductId { get; set; }
-        public virtual Product Product { get; set; }
+        public Product Product { get; set; }
     }
 }

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eCommerce.DatabaseContext;
 
 namespace eCommerce.DatabaseContext.Migrations
 {
     [DbContext(typeof(DatabaseDbContext))]
-    partial class DatabaseDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191005061937_Change Category Id_int_to_long")]
+    partial class ChangeCategoryId_int_to_long
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,11 +30,7 @@ namespace eCommerce.DatabaseContext.Migrations
                     b.Property<string>("Name")
                         .IsRequired();
 
-                    b.Property<long?>("ParentId");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("ParentId");
 
                     b.ToTable("Categories");
                 });
@@ -68,7 +66,7 @@ namespace eCommerce.DatabaseContext.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<DateTime?>("ExpireDate");
+                    b.Property<DateTime>("ExpireDate");
 
                     b.Property<byte[]>("Image");
 
@@ -102,13 +100,6 @@ namespace eCommerce.DatabaseContext.Migrations
                         .IsUnique();
 
                     b.ToTable("Stocks");
-                });
-
-            modelBuilder.Entity("eCommerceApp.Models.Category", b =>
-                {
-                    b.HasOne("eCommerceApp.Models.Category", "Parent")
-                        .WithMany("ChildList")
-                        .HasForeignKey("ParentId");
                 });
 
             modelBuilder.Entity("eCommerceApp.Models.Product", b =>

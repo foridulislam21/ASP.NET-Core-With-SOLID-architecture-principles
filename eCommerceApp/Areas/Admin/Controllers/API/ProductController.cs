@@ -28,18 +28,6 @@ namespace eCommerceApp.Areas.Admin.Controllers.API
         public IActionResult Get([FromQuery] ProductSearchCriteriaVm productSearchCriteria)
         {
             var products = _productManager.GetByCriteria(productSearchCriteria);
-            //    .Select(p => new
-            //{
-            //    p.Id,
-            //    p.Name,
-            //    p.Price,
-            //    p.ExpireDate,
-            //    Category = new
-            //    {
-            //        CategoryId = p.Category.Id,
-            //        CategoryName = p.Category.Name
-            //    }
-            //});
             if (products.Any())
             {
                 return Ok(products);
@@ -88,16 +76,16 @@ namespace eCommerceApp.Areas.Admin.Controllers.API
             {
                 product.Name = model.Name;
                 product.Price = model.Price;
-                product.Description = model.Description;
                 product.CategoryId = model.CategoryId;
-                product.ExpireDate = model.ExpireDate;
                 product.IsActive = model.IsActive;
+                product.ExpireDate = model.ExpireDate;
                 product.Image = model.Image;
+                product.Description = model.Description;
 
                 bool isUpdated = await _productManager.Update(product);
                 if (isUpdated)
                 {
-                    return Ok();
+                    return Ok("Update Successfully");
                 }
             }
             else

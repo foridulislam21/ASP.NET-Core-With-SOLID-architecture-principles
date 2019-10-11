@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using eCommerceApp.Abstractions.BLL;
 using eCommerceApp.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace eCommerceApp.Areas.Admin.Controllers
@@ -48,6 +49,39 @@ namespace eCommerceApp.Areas.Admin.Controllers
                 ViewBag.ErrorMessage = "Operation failed";
             }
             return RedirectToAction("Index");
+        }
+
+        [Route("Category/CreateChild")]
+        public IActionResult CreateChild()
+        {
+            PopulateCategories();
+            return View();
+        }
+
+        private async void PopulateCategories(object selectList = null)
+        {
+            var category = await _categoryManager.GetAll();
+            ViewBag.ParentId = new SelectList(category.Where(c => c.ParentId == null), "Id", "Name", selectList);
+        }
+
+        [Route("Category/CreateChild")]
+        [HttpPost]
+        public async Task<IActionResult> CreateChild(Category category)
+        {
+            if (ModelState.IsValid)
+            {
+                bool childCategoryAdd = await _categoryManager.Add(category);
+                if (childCategoryAdd)
+                {
+                    ViewBag.SuccessMessage = "Added Successfully";
+                    return RedirectToAction(nameof(Index));
+                }
+            }
+            else
+            {
+                ViewBag.ErrorMessage = "Operation failed";
+            }
+            return RedirectToAction(nameof(Index));
         }
     }
 }

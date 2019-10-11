@@ -1,18 +1,19 @@
 ﻿@model IEnumerable<eCommerceApp.Models.Category>
-
 @{
-    ViewData["Title"] = "Index";
+    Layout = "_Layout";
 }
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table table-hover table-responsive-sm table-striped">
+<h1 class="mt-5">Index</h1>
+<a asp-action="Create" class="btn btn-success btn-sm">Add Parent</a>
+<a asp-action="CreateChild" class="btn btn-success btn-sm">Add Child</a>
+<table class="table table-hover table-responsive-sm table-striped mt-2">
     <thead>
-        <tr>
+        <tr class="alert-dark">
             <th>
                 @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                Parent Name
             </th>
             <th></th>
         </tr>
@@ -20,9 +21,12 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
+            <tr class="small">
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Parent.Name)
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
@@ -33,3 +37,11 @@
         }
     </tbody>
 </table>
+@section Scripts
+{
+    <script type="text/javascript">
+        $(() => {
+            $("#accordion").accordion();
+        })
+    </script>
+}

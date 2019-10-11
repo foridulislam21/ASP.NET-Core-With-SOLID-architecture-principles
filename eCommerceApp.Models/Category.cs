@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace eCommerceApp.Models
@@ -11,8 +12,14 @@ namespace eCommerceApp.Models
             Products = new List<Product>();
         }
 
-        public int Id { get; set; }
+        public long Id { get; set; }
         public string Name { get; set; }
-        public virtual ICollection<Product> Products { get; set; }
+        public long? ParentId { get; set; }
+        public Category Parent { get; set; }
+
+        [InverseProperty("Parent")]
+        public List<Category> ChildList { get; set; }
+
+        public ICollection<Product> Products { get; set; }
     }
 }

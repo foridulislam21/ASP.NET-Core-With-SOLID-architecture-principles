@@ -44,11 +44,11 @@ namespace eCommerceApp.Areas.Admin.Controllers
 
         [Route("Product/Create")]
         [HttpPost]
-        public async Task<IActionResult> Create(Product product, List<IFormFile> Image)
+        public async Task<IActionResult> Create(Product product, List<IFormFile> file)
         {
             if (ModelState.IsValid)
             {
-                foreach (var item in Image)
+                foreach (var item in file)
                 {
                     if (item.Length > 0)
                     {
@@ -64,7 +64,7 @@ namespace eCommerceApp.Areas.Admin.Controllers
             }
 
             PopulateCategory(product.CategoryId);
-            return View();
+            return RedirectToAction("Index");
         }
 
         private async void PopulateCategory(object selectList = null)
