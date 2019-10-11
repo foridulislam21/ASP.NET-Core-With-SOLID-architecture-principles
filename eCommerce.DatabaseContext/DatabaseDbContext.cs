@@ -18,7 +18,7 @@ namespace eCommerce.DatabaseContext
         {
             optionsBuilder
                 .UseLazyLoadingProxies(false)
-                .UseSqlServer("Server=(local);Database=eCommerceApp;Integrated Security=true");
+                .UseSqlServer("Server=(local);Database=eCommerceApp_Auth;Integrated Security=true");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
