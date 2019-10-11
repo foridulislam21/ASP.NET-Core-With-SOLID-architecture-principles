@@ -70,7 +70,7 @@ namespace eCommerceApp.Areas.Admin.Controllers
         private async void PopulateCategory(object selectList = null)
         {
             var category = await _categoryRepository.GetAll();
-            ViewBag.CategoryId = new SelectList(category, "Id", "Name", selectList);
+            ViewBag.CategoryId = new SelectList(category.Where(c => c.ParentId != null), "Id", "Name", selectList);
         }
 
         [Route("product/Details")]

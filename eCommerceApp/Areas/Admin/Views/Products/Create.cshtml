@@ -32,9 +32,18 @@
                 <label asp-for="IsActive" class="form-check-label"></label>
                 <span asp-validation-for="IsActive" class="text-danger"></span>
             </div>
+            @*<fieldset>
+                    <label>Select a Category</label>
+                    <select id="selectchild">
+                        <optgroup label="@ViewBag.CategoryId">
+                        </optgroup>
+                    </select>
+                </fieldset>*@
             <div class="form-group">
                 <label asp-for="CategoryId" class="control-label"></label>
-                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId">
+                    <option disabled="" selected="">Select Category</option>
+                </select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
