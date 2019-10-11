@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Text;
 using eCommerce.DatabaseContext.FluentApiConfiguration;
 using eCommerceApp.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace eCommerce.DatabaseContext
 {
-    public class DatabaseDbContext : DbContext
+    public class DatabaseDbContext : IdentityDbContext<IdentityUser>
     {
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
@@ -23,6 +25,7 @@ namespace eCommerce.DatabaseContext
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfiguration(new ProductFluentApiConfigure());
             modelBuilder.ApplyConfiguration(new CategoryFluentApiConfigure());
             modelBuilder.Entity<Product>().HasQueryFilter(p => p.IsActive);
