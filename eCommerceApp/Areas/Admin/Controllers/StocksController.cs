@@ -22,19 +22,21 @@ namespace eCommerceApp.Areas.Admin.Controllers
             _stockManager = stockManager;
             _iProductManager = iProductManager;
         }
-        
+
         [Route("Stock/Index")]
         public async Task<IActionResult> Index()
         {
             var stock = await _stockManager.GetAll();
             return View(stock);
         }
+
         [Route("Stock/Create")]
         public IActionResult Create()
         {
             PopulateProduct();
             return View();
         }
+
         [Route("Stock/Create")]
         [HttpPost]
         public async Task<IActionResult> Create(Stock stock)
@@ -56,10 +58,10 @@ namespace eCommerceApp.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private  void PopulateProduct(object selectList = null)
+        private async void PopulateProduct(object selectList = null)
         {
-            var products =  _iProductManager.GetAll();
-            ViewBag.ProductId = new SelectList(products,"Id","Name",selectList);
+            var products = await _iProductManager.GetAll();
+            ViewBag.ProductId = new SelectList(products, "Id", "Name", selectList);
         }
     }
 }

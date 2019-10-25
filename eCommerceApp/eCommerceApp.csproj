@@ -10,12 +10,17 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.DependencyValidation.Analyzers" Version="0.10.0" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.4" />
     <PackageReference Include="PagedList.Core.Mvc" Version="2.1.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\lib\jquery-validation-unobtrusive\" />
+    <Folder Include="Areas\Identity\Services\" />
+    <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\lib\bootstrap\dist\css\" />
+    <Folder Include="wwwroot\lib\bootstrap\dist\fonts\" />
+    <Folder Include="wwwroot\lib\bootstrap\dist\js\" />
+    <Folder Include="wwwroot\lib\jquery-validation\dist\" />
     <Folder Include="wwwroot\lib\jqueryui\images\" />
     <Folder Include="wwwroot\lib\jqueryui\themes\base\images\" />
     <Folder Include="wwwroot\lib\jqueryui\themes\black-tie\" />
@@ -56,10 +61,11 @@
     <Folder Include="wwwroot\lib\jqueryui\themes\ui-darkness\images\" />
     <Folder Include="wwwroot\lib\jqueryui\themes\ui-lightness\images\" />
     <Folder Include="wwwroot\lib\jqueryui\themes\vader\images\" />
-    <Folder Include="wwwroot\lib\jquery\" />
+    <Folder Include="wwwroot\lib\jquery\dist\" />
     <Folder Include="wwwroot\lib\popper.js\esm\" />
     <Folder Include="wwwroot\lib\popper.js\umd\" />
     <Folder Include="wwwroot\lib\prefixfree\" />
+    <Folder Include="wwwroot\lib\qrcode-generator\" />
     <Folder Include="wwwroot\lib\twitter-bootstrap\css\" />
     <Folder Include="wwwroot\lib\twitter-bootstrap\js\" />
     <Folder Include="wwwroot\lib\validate-js\" />

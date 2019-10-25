@@ -33,6 +33,10 @@
     {
       "library": "jqueryui@1.12.1",
       "destination": "wwwroot/lib/jqueryui/"
+    },
+    {
+      "library": "qrcode-generator@1.4.4",
+      "destination": "wwwroot/lib/qrcode-generator/"
     }
   ]
 }

@@ -1,77 +1,37 @@
-﻿/*****Customer*******/
-* {
-    margin: 0;
-    padding: 0;
-}
-
-html * {
-    box-sizing: border-box;
-}
-
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
 body {
-    overflow-y: scroll;
+    padding-top: 50px;
+    padding-bottom: 20px;
 }
 
-#nav-bar {
-    position: fixed;
-    top: 0;
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
     width: 100%;
-    z-index: 10;
 }
 
-    #nav-bar ul li a:hover {
-        color: chocolate !important;
-        transition: all 0.5s ease-in-out;
-    }
-
-.navbar-brand i {
-    position: static;
-    padding-left: 20px;
+/* QR code generator */
+#qrCode {
+    margin: 15px;
 }
 
-.navbar-nav li {
-    padding: 0px 10px;
-}
-
-    .navbar-nav li a {
-        float: left;
-        text-align: right;
-        font-weight: 600;
-    }
-
-.navbar-toggler {
-    border: none !important;
-}
-
-#slider {
-    padding-top: 45px !important;
-}
-
-    #slider img {
-        position: relative;
-        width: 100% !important;
-        height: 400px !important;
-    }
-
-.footerNav .nav-link {
-    padding-bottom: 0 !important;
-}
-/*****Admin Panel*****/
-
-@media (min-width: 576px) and (max-width: 767.98px) {
-    body {
-        font-size: 15px !important;
-    }
-
-    .footerNav {
-        font-size: 12px !important;
-    }
-
-    .footer {
-        font-size: 10px !important;
-    }
-
-    #slider {
-        height: 25px;
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
     }
 }
