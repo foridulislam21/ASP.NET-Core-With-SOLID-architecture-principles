@@ -73,6 +73,7 @@ namespace eCommerceApp.Areas.Admin.Controllers
                 bool childCategoryAdd = await _categoryManager.Add(category);
                 if (childCategoryAdd)
                 {
+                    PopulateCategories(category.Id);
                     ViewBag.SuccessMessage = "Added Successfully";
                     return RedirectToAction(nameof(Index));
                 }

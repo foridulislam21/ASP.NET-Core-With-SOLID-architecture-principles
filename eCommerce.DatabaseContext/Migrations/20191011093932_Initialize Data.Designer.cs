@@ -10,8 +10,8 @@ using eCommerce.DatabaseContext;
 namespace eCommerce.DatabaseContext.Migrations
 {
     [DbContext(typeof(DatabaseDbContext))]
-    [Migration("20190924163257_IsActive_Introduce_In_Product_Customer")]
-    partial class IsActive_Introduce_In_Product_Customer
+    [Migration("20191011093932_Initialize Data")]
+    partial class InitializeData
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,14 +23,18 @@ namespace eCommerce.DatabaseContext.Migrations
 
             modelBuilder.Entity("eCommerceApp.Models.Category", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
                         .IsRequired();
 
+                    b.Property<long?>("ParentId");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("ParentId");
 
                     b.ToTable("Categories");
                 });
@@ -62,11 +66,11 @@ namespace eCommerce.DatabaseContext.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CategoryId");
+                    b.Property<long>("CategoryId");
 
                     b.Property<string>("Description");
 
-                    b.Property<DateTime>("ExpireDate");
+                    b.Property<DateTime?>("ExpireDate");
 
                     b.Property<byte[]>("Image");
 
@@ -100,6 +104,13 @@ namespace eCommerce.DatabaseContext.Migrations
                         .IsUnique();
 
                     b.ToTable("Stocks");
+                });
+
+            modelBuilder.Entity("eCommerceApp.Models.Category", b =>
+                {
+                    b.HasOne("eCommerceApp.Models.Category", "Parent")
+                        .WithMany("ChildList")
+                        .HasForeignKey("ParentId");
                 });
 
             modelBuilder.Entity("eCommerceApp.Models.Product", b =>

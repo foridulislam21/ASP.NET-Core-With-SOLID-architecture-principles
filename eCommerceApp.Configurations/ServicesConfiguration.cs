@@ -15,10 +15,16 @@ namespace eCommerceApp.Configurations
     {
         public static void ConfigureServices(IServiceCollection services)
         {
+            //Category
             services.AddTransient<ICategoryManager, CategoryManager>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
+            //product
             services.AddTransient<IProductManager, ProductManager>();
             services.AddTransient<IProductRepository, ProductRepository>();
+            //stock
+            services.AddTransient<IStockManager, StockManager>();
+            services.AddTransient<IStockRepository, StockRepository>();
+            //DbContext
             services.AddTransient<DbContext, DatabaseDbContext>();
             services.AddTransient<DatabaseDbContext>();
         }
