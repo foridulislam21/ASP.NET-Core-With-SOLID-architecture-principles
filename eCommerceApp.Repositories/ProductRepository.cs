@@ -48,6 +48,11 @@ namespace eCommerceApp.Repositories
                 {
                     products = products.Where(p => p.Price <= productSearchCriteria.ToPrice);
                 }
+
+                if (!string.IsNullOrEmpty(productSearchCriteria.CategoryName))
+                {
+                    products = products.Where(p => p.Name.ToLower().Contains(productSearchCriteria.Name.ToLower()));
+                }
             }
 
             return products.ToList();

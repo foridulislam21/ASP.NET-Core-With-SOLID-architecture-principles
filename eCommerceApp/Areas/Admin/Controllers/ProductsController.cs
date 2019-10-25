@@ -38,7 +38,6 @@ namespace eCommerceApp.Areas.Admin.Controllers
         [Route("Product/Create")]
         public IActionResult Create()
         {
-            PopulateCategory();
             return View();
         }
 

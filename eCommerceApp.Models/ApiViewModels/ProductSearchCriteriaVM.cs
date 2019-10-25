@@ -9,5 +9,6 @@ namespace eCommerceApp.Models.ApiViewModels
         public string Name { get; set; }
         public double FromPrice { get; set; }
         public double ToPrice { get; set; }
+        public string CategoryName { get; set; }
     }
 }

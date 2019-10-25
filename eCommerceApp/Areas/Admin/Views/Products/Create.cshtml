@@ -32,17 +32,9 @@
                 <label asp-for="IsActive" class="form-check-label"></label>
                 <span asp-validation-for="IsActive" class="text-danger"></span>
             </div>
-            @*<fieldset>
-                    <label>Select a Category</label>
-                    <select id="selectchild">
-                        <optgroup label="@ViewBag.CategoryId">
-                        </optgroup>
-                    </select>
-                </fieldset>*@
             <div class="form-group">
-                <label asp-for="CategoryId" class="control-label"></label>
-                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId">
-                    <option disabled="" selected="">Select Category</option>
+                <label class="control-label">Category Name</label>
+                <select class="form-control" id="selectMenu">
                 </select>
             </div>
             <div class="form-group">
@@ -65,4 +57,24 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script type="text/javascript" src="~/js/Product/ProductImage.js"></script>
+    <script type="text/javascript">
+        $(document).ready(() => {
+            $.ajax({
+                url: "/api/categories",
+                type: "GET",
+                accept: "application/json",
+                success: (categories) => {
+                    var categoryList = $("#selectMenu");
+                    $.each(categories,
+                        (index, category) => {
+                            var optgroup = "<option value='" + category.id + "'>" + category.name + "< />";
+                            categoryList.append(optgroup);
+                        });
+                },
+                error: (response) => {
+
+                }
+            });
+        });
+    </script>
 }
