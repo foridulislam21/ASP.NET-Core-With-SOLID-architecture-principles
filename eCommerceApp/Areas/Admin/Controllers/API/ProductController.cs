@@ -48,6 +48,19 @@ namespace eCommerceApp.Areas.Admin.Controllers.API
             return Ok(product);
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetBankAccount(long id)
+        {
+            var product = await _productManager.GetById(id);
+
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(product);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Post(Product product)
         {
@@ -56,7 +69,7 @@ namespace eCommerceApp.Areas.Admin.Controllers.API
                 bool isAdded = await _productManager.Add(product);
                 if (isAdded)
                 {
-                    return Created("/api/products" + product.Id, product);
+                    return CreatedAtAction("GetBankAccount", new { id = product.Id }, product);
                 }
             }
 
