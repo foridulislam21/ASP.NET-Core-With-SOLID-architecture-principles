@@ -63,14 +63,14 @@ namespace eCommerceApp.Areas.Admin.Controllers
                 await _productRepository.Add(product);
             }
 
-            PopulateCategory(product.CategoryId);
+            PopulateCategory();
             return RedirectToAction("Index");
         }
 
-        private async void PopulateCategory(object selectList = null)
+        private async void PopulateCategory()
         {
             var category = await _categoryRepository.GetAll();
-            ViewBag.CategoryId = new SelectList(category, "Id", "Name", selectList);
+            ViewBag.CategoryId = new SelectList(category, "Id", "Name");
         }
 
         [Route("product/Details")]

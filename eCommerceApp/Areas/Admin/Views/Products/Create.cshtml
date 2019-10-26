@@ -57,24 +57,5 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script type="text/javascript" src="~/js/Product/ProductImage.js"></script>
-    <script type="text/javascript">
-        $(document).ready(() => {
-            $.ajax({
-                url: "/api/categories",
-                type: "GET",
-                accept: "application/json",
-                success: (categories) => {
-                    var categoryList = $("#selectMenu");
-                    $.each(categories,
-                        (index, category) => {
-                            var optgroup = "<option value='" + category.id + "'>" + category.name + "< />";
-                            categoryList.append(optgroup);
-                        });
-                },
-                error: (response) => {
 
-                }
-            });
-        });
-    </script>
 }
