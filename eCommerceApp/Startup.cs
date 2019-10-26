@@ -80,6 +80,11 @@ namespace eCommerceApp
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors(options =>
+                options.AllowAnyHeader()
+                    .AllowAnyOrigin()
+                    .AllowCredentials()
+                    .AllowAnyMethod());
             app.UseSession();
             app.UseDeveloperExceptionPage();
             app.UseStaticFiles();
